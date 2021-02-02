@@ -1,27 +1,19 @@
 package fit.challenge;
 
 public class ImcCalculator {
- 
-    private static void calculate() throws Exception {
-        System.out.print("Insira seu peso em kg: ");
-        Scanner s = new Scanner(System.in);
-        float weight = s.nextFloat();
-        System.out.print("Insira sua altura em cm: ");
-        float height = s.nextFloat();
-         
-        float imc = (100*100*weight)/(height*height);
-         
-    }
-     
-    private static void printImcCalculate(float imc) {
-        if(imc < 18.5) {
-            System.out.println("Abaixo do Peso");
-        }else if (imc < 25) {
-            System.out.println("Normal");
-        }else if (imc < 30) {
-            System.out.println("Sobrepeso");
-        }else {
-            System.out.println("Obesidade");
+
+    public static String calculate(double peso, double altura) {
+
+        double massa = peso / Math.pow(altura, 2);
+
+        if (massa <= 18.49) {
+            return "Magreza";
+        } else if (massa >= 18.5 && massa <= 24.99) {
+            return "Normal";
+        } else if (massa >= 25 && massa <= 30) {
+            return "Sobrepeso";
+        } else {
+            return "Obesidade";
         }
     }
 }
